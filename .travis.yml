@@ -18,14 +18,14 @@ script:
   - echo "Building udagram microservices app"
   ## Run this command from the directory where you have the "docker-compose-build.yaml" file present
   - docker-compose -f docker-compose-build.yaml build --parallel
-  - docker tag udagram-reverseproxy $YOUR_DOCKER_HUB/udagram-reverseproxy:v2
-  - docker tag udagram-api-user $YOUR_DOCKER_HUB/udagram-api-user:v2
-  - docker tag udagram-api-feed $YOUR_DOCKER_HUB/udagram-api-feed:v2
-  - docker tag udagram-frontend $YOUR_DOCKER_HUB/udagram-frontend:v2
+  - docker tag udagram-reverseproxy $YOUR_DOCKER_HUB/udagram-reverseproxy:v3
+  - docker tag udagram-api-user $YOUR_DOCKER_HUB/udagram-api-user:v3
+  - docker tag udagram-api-feed $YOUR_DOCKER_HUB/udagram-api-feed:v3
+  - docker tag udagram-frontend $YOUR_DOCKER_HUB/udagram-frontend:v3
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $YOUR_DOCKER_HUB/udagram-reverseproxy:v2
-  - docker push $YOUR_DOCKER_HUB/udagram-api-user:v2
-  - docker push $YOUR_DOCKER_HUB/udagram-api-feed:v2
-  - docker push $YOUR_DOCKER_HUB/udagram-frontend:v2
+  - docker push $YOUR_DOCKER_HUB/udagram-reverseproxy:v3
+  - docker push $YOUR_DOCKER_HUB/udagram-api-user:v3
+  - docker push $YOUR_DOCKER_HUB/udagram-api-feed:v3
+  - docker push $YOUR_DOCKER_HUB/udagram-frontend:v3
